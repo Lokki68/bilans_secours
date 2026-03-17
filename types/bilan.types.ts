@@ -77,5 +77,17 @@ export interface BilanComplet {
   statut: "en cours" | "complet";
 }
 
-export interface BilanStore {}
+export interface BilanStore {
+  bilan: BilanComplet;
+  sessionId: string;
+  isSessionValid: boolean;
+  updateCirconstanciel: (data: Partial<BilanCirconstanciel>) => void;
+  updatePrimaire: (data: Partial<BilanPrimaire>) => void;
+  updateSecondaire: (data: Partial<BilanSecondaireABCDE>) => void;
+  resetBilan: () => void;
+  clearSession: () => Promise<void>;
+  validateSession: () => Promise<boolean>
+}
+
+
 
